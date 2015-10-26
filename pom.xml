@@ -19,6 +19,8 @@
     <jackson.version>2.5.1</jackson.version>
   </properties>
   
+  <!-- RUN "mvn eclipse:eclipse" for Eclipse -->
+  
   <dependencyManagement>
         <dependencies>
             <dependency>
@@ -30,6 +32,11 @@
     </dependencyManagement>
     
     <dependencies>
+        <!--
+            RUN THIS TO HAVE THE SOURCES/JAVADOCS
+            mvn dependency:sources
+            mvn dependency:resolve -Dclassifier=javadoc
+        -->
         <dependency>
             <groupId>org.deeplearning4j</groupId>
             <artifactId>deeplearning4j-nlp</artifactId>
@@ -135,6 +142,42 @@
             <target>1.8</target>
           </configuration>
         </plugin>
+        
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <executions>
+                <execution>
+                    <id>attach-sources</id>
+                    <goals>
+                        <goal>jar</goal>
+                    </goals>
+                </execution>
+            </executions>
+         </plugin>
+         
+         <plugin>
+             <groupId>org.apache.maven.plugins</groupId>
+             <artifactId>maven-javadoc-plugin</artifactId>
+             <executions>
+                 <execution>
+                     <id>attach-javadocs</id>
+                     <goals>
+                         <goal>jar</goal>
+                     </goals>
+                 </execution>
+             </executions>
+         </plugin>
+         
+         <plugin>
+             <groupId>org.apache.maven.plugins</groupId>
+             <artifactId>maven-eclipse-plugin</artifactId>
+             <version>2.10</version>
+             <configuration>
+                 <downloadSources>true</downloadSources>
+                 <downloadJavadocs>true</downloadJavadocs>
+             </configuration>
+         </plugin>
       </plugins>
     </build>
     
