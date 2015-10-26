@@ -34,7 +34,7 @@
     <dependencies>
         <!--
             RUN THIS TO HAVE THE SOURCES/JAVADOCS
-            mvn dependency:sources
+            mvn source:jar install
             mvn dependency:resolve -Dclassifier=javadoc
         -->
         <dependency>

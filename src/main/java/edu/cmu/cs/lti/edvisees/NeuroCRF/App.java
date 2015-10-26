@@ -1,5 +1,7 @@
 package edu.cmu.cs.lti.edvisees.NeuroCRF;
 
+
+import org.deeplearning4j.eval.Evaluation;
 /**
  * Hello world!
  *
